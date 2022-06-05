@@ -1,6 +1,7 @@
 const express = require('express')
 const passport = require('passport')
 const session = require('express-session')
+const cors = require('cors')
 const app = express()
 const bodyParser = require('body-parser')
 const port = process.env.PORT
@@ -21,6 +22,15 @@ const LocalStrategy = require('passport-local').Strategy
 // passport.use(new JwtStrategy(opts, (jwt_payload, done) => {
 //   done(null, user)
 // }))
+
+app.use(cors())
+// app.use(function(req, res, next) {
+//     res.header("Access-Control-Allow-Origin", '*');
+//     res.header("Access-Control-Allow-Credentials", true);
+//     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+//     res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
+//     next();
+// })
 
 passport.use('local', new LocalStrategy({
   usernameField: 'username',
