@@ -58,6 +58,10 @@ app.post('/login', passport.authenticate('local'), (req, res) => {
   res.send(req.user)
 })
 
+app.get('/', (req, res) => {
+  res.send('Hello Postgres')
+})
+
 app.get('/mdr', (req, res) => {
   res.send({
     lol: true,
